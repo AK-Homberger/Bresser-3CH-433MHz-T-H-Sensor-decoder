@@ -182,13 +182,13 @@ The data is grouped in 5 bytes / 10 nibbles
 ```
 Meaning of bits:
 - i: 8 bit random id (changes on power-loss)
-- b: battery indicator (0=>OK, 1=>LOW)
+- b: Battery indicator (0=>OK, 1=>LOW)
 - s: Test/Sync (0=>Normal, 1=>Test-Button pressed / Sync)
 - c: Channel (MSB-first, valid channels are 1-3)
 - t: Temperature (MSB-first, Big-endian)
      12 bit unsigned fahrenheit offset by 90 and scaled by 10
 - h: Humidity (MSB-first) 8 bit relative humidity percentage
-- x: checksum (byte1 + byte2 + byte3 + byte4) % 256
+- x: Checksum (byte1 + byte2 + byte3 + byte4) % 256
      
 
 Basic information for this project has been found here: https://forum.iobroker.net/topic/3478/l%C3%B6sung-dekodieren-t-h-sensor-wetterstation-hygrometer-von-bresser-angebot-bei-lidl-14-99-uvp-40-433mhz
