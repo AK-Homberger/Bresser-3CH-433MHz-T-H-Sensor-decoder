@@ -22,7 +22,7 @@ The Arduino has to be cennected to the RXB6 receiver with 5 Volt/GND and the dat
 
 # Software
 
-The Arduino sketch has to be uploaded with the Arduino IDE to the Nano.
+The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) has to be uploaded with the Arduino IDE to the Nano.
 
 After restart the Arduino will wait for datgrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
 
