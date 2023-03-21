@@ -104,24 +104,27 @@ parser.on('data', function(data){
 
 # Bresser 3CH data format
 
-  The sensor sends 15 identical packages of 40 bits each ~60s.
-  The bits are PWM modulated with On Off Keying.
-  Transmissions also include channel code, sync id, batt-low, and test/sync.
+The sensor sends 15 identical packages of 40 bits each ~60s. The bits are PWM modulated with On Off Keying.
+Transmissions also include channel code, sync id, batt-low, and test/sync.
+
+
    +----+  +----+  +--+    +--+      high
    |    |  |    |  |  |    |  |
    |    |  |    |  |  |    |  |
   -+    +--+    +--+  +----+  +----  low
    ^       ^       ^       ^       ^  clock cycle
    |   1   |   1   |   0   |   0   |  translates as
-  Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble)
-  32 bits data and 8 bits CRC checksum.
-  Data is transmitted in pure binary values, NOT BCD-coded.
-  Temperature is given in Centi-Fahrenheit and offset by 900.
-  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
-  CH1 has a period of 57 s
-  CH2 has a period of 67 s
-  CH3 has a period of 79 s
-  A short pulse of 250 us followed by a 500 us gap is a 0 bit,
-  a long pulse of 500 us followed by a 250 us gap is a 1 bit,
-  there is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
-  Actual received and demodulated timings might be 2% shorter.
+
+Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble)
+32 bits data and 8 bits CRC checksum.
+Data is transmitted in pure binary values, NOT BCD-coded.
+Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
+
+CH1 has a period of 57 s
+CH2 has a period of 67 s
+CH3 has a period of 79 s
+
+A short pulse of 250 us followed by a 500 us gap is a 0 bit,
+a long pulse of 500 us followed by a 250 us gap is a 1 bit,
+there is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
+
