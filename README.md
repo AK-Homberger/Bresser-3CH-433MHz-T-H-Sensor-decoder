@@ -18,12 +18,73 @@ The Arduino, i reccomend a small Nano for thos project, has to cennected to the 
 
 # Software
 
-The Arduino sketch hast to be uploaded with the Arduino IDE to the Nano.
+The Arduino sketch has to be uploaded with the Arduino IDE to the Nano.
 
-After restart the Arduino will wait for datgrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute.
-
-Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
+After restart the Arduino will wait for datgrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
 
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
+# ioBroker integration script
 
+'''
+// Create a serial port
+const { SerialPort } = require('serialport');
+const port = new SerialPort({
+  path: '/dev/ttyACM0',   // Set the device name
+  baudRate: 115200,
+});
+
+// Create line parser
+const { ReadlineParser } = require('@serialport/parser-readline');
+const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }));
+
+// Create states if they do not exist yet
+createState("javascript.0.Temperature", 0, 
+  {name: "Temperature",  role: 'variable', type: 'number'});
+
+createState("javascript.0.Humidity", 0, 
+  {name: "Humidity",  role: 'variable', type: 'number'});
+
+createState("javascript.0.C2_Temperature", 0, 
+  {name: "C2_Temperature",  role: 'variable', type: 'number'});
+
+createState("javascript.0.C2_Humidity", 0, 
+  {name: "C2_Humidity",  role: 'variable', type: 'number'});
+
+// Define parser function
+
+parser.on('data', function(data){
+  // console.log(data);
+  
+  try{
+    var messageObject = JSON.parse(data);
+  }
+  catch (e) {
+    return console.error(e);
+  }
+ 
+  const temp =  messageObject.temp;
+  const hum =  messageObject.hum;
+  const ch = messageObject.ch;
+  const id = messageObject.id;
+  const lowbatt = messageObject.lowbatt;
+  
+  if(lowbatt == 1) {
+        var msg = "Low Battery ID: "+ id + " Channel: " + ch;
+        console.log(msg);
+    }
+
+  // Adjust channel and id to your needs
+
+  if(ch == 1 && id == 4) {
+    setState("javascript.0.Temperature", temp, true);
+    setState("javascript.0.Humidity", hum, true);    
+  }
+  
+  if(ch == 2 && id == 63) {
+    setState("javascript.0.C2_Temperature", temp, true);
+    setState("javascript.0.C2_Humidity", hum, true);
+  }
+});
+
+'''
