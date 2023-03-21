@@ -2,7 +2,7 @@
 
 This repository shows how to build a receiver/decoder for an 433 MHz [Bresser 3 channel](http://www.bresser.de/Wetter/BRESSER-Thermo-Hygro-Sensor-3CH-passend-fuer-BRESSER-Thermo-Hygrometer.html) temperature and humidity sensor.
 
-It is also shown how to integrate the decoder into the ioBroker smarthome platform.
+It is also shown how to integrate the decoder into the [ioBroker](https://www.iobroker.net/)smarthome platform.
 
 The only components are an [Arduino](https://www.makershop.de/plattformen/arduino/nano-v3/) (Nano recommended) and a [RXB6](https://www.makershop.de/module/funk/rxb6-433mhz-superheterodyne/) 433 MHz receiver. And of course one or more Bresser 3CH sensors.
 
@@ -45,7 +45,7 @@ You can also use more than 3 sensors in ioBroker by defining the individual "id"
 
 # ioBroker Integration Script
 
-The JSON formatted output can be easily read with smarthome platforms like ioBroker or Home Assistant. 
+The JSON formatted output can be easily read with smarthome platforms like [ioBroker](https://www.iobroker.net/) or Home Assistant. 
 
 The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker. 
 
