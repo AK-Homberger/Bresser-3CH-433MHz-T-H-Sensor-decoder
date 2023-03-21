@@ -45,7 +45,7 @@ You can also use more than 3 sensors in ioBroker by defining the individual "id"
 The core function in the Arduino sketch is the interrupt function "rx433Handler()".
 This function is called for every status change of the data line of the RXB6 receiver which is following the [On/Off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) of the sensor. 
 
-Within the function, the duration of every "high" pulse is measured and compared with the timing of the Bresser 3CH which is detailled [here](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/README.md#bresser-3ch-data-format).
+Within the function, the duration of every "high" pulse is measured and compared with the timing of the Bresser 3CH.
 
 ```
    +----+  +----+  +--+    +--+      high
@@ -59,9 +59,11 @@ Within the function, the duration of every "high" pulse is measured and compared
 - A short pulse of 250 us followed by a 500 us gap is a 0 bit,
 - there is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
 
-For each Zero/One received bit, the bit is stored. If all 40 bits (32 bits data an 8 bits checksum) are received, the checksum is checked, and if correct, the data will be written to a ring buffer.
+Every valid "sync pulse" or invalid detected timing will reset the received data to zero.
 
-Within "loop()" the availability of new data in the ring buffer is constantly checked. If new data is available the data will be decoded with the function "getResults()". The decoded values are formatted as JSON string and sent to the USB-Serial interface (once per second for each sensor).
+For each vaild 0/1 received bit, the bit is stored. If all 40 bits (32 bits data an 8 bits checksum) are received, the checksum is checked, and if correct, the data will be written to a ring buffer.
+
+Within "loop()" the availability of new data in the ring buffer is constantly checked. If new data is available, the data will be decoded with the function "getResults()". The decoded values are formatted as JSON string and sent to the USB-Serial interface (once per second for each sensor).
 
 # ioBroker Integration Script
 
