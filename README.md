@@ -37,7 +37,7 @@ The id for a sensor is changing randomly after every battery change. To get the 
 
 # ioBroker Integration Script
 
-The JSON formatted output can be easily read with othe smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker.
+The JSON formatted output can be easily read with smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker. 
 
 For the script I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
 
