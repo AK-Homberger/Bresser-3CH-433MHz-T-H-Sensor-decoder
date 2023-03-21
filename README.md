@@ -59,11 +59,18 @@ createState("javascript.0.Temperature", 0,
 createState("javascript.0.Humidity", 0, 
   {name: "Humidity",  role: 'variable', type: 'number'});
 
+createState("javascript.0.BatteryState", 0, 
+  {name: "Battery State",  role: 'variable', type: 'number'});
+
 createState("javascript.0.C2_Temperature", 0, 
   {name: "C2_Temperature",  role: 'variable', type: 'number'});
 
 createState("javascript.0.C2_Humidity", 0, 
   {name: "C2_Humidity",  role: 'variable', type: 'number'});
+
+createState("javascript.0.C2_BatteryState", 0, 
+  {name: "C2 Battery State",  role: 'variable', type: 'number'});
+
 
 // Define parser function
 
@@ -83,23 +90,21 @@ parser.on('data', function(data){
   const id = messageObject.id;
   const lowbatt = messageObject.lowbatt;
   
-  if(lowbatt == 1) {
-        var msg = "Low Battery ID: "+ id + " Channel: " + ch;
-        console.log(msg);
-    }
-
   // Adjust channel and id to your needs
 
   if(ch == 1 && id == 4) {
     setState("javascript.0.Temperature", temp, true);
-    setState("javascript.0.Humidity", hum, true);    
+    setState("javascript.0.Humidity", hum, true);
+    setState("javascript.0.BatteryState", lowbatt, true);
   }
   
   if(ch == 2 && id == 63) {
     setState("javascript.0.C2_Temperature", temp, true);
     setState("javascript.0.C2_Humidity", hum, true);
+    setState("javascript.0.C2_BatteryState", lowbatt, true);
   }
 });
+
 ```
 
 # Bresser 3CH Data Format
