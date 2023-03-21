@@ -33,6 +33,8 @@ After restart, the Arduino will wait for datgrams from one or more Bresser 3CH s
 
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
+The id for a sensor is changing randomly after every battery change. To get the current id of a sensor you can yuse the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script.
+
 # ioBroker Integration Script
 The JSON formatted output can be easily read with othe smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker.
 
