@@ -8,7 +8,7 @@ The only components are an [Arduino](https://store.arduino.cc/products/arduino-n
 
 ![Bresser3CH](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/Bresser3CH.JPG)
 
-An [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) decodes the received 433MNHz signals from the RXB6 and sends the decoded data as JSON string to the USB-Serial interface.
+An [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) decodes the received 433 MHz signals from the RXB6 and sends the decoded data as JSON string to the USB-Serial interface.
 The intention is to use the decoded data on a smarthome system like ioBroker.
 
 A script for integration ioBroker is also available in this repository.
