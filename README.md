@@ -8,7 +8,7 @@ The only components are an [Arduino](https://store.arduino.cc/products/arduino-n
 
 ![Bresser3CH](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/Bresser3CH.JPG)
 
-An [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) decodes the RF signals and sends the decoded data as JSON string to the USB-Serial interface.
+An [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) decodes the received 433MNHz signals from the RXB6 and sends the decoded data as JSON string to the USB-Serial interface.
 The intention is to use the decoded data on a smarthome system like ioBroker.
 
 A script for integration ioBroker is also available in this repository.
@@ -17,7 +17,7 @@ A script for integration ioBroker is also available in this repository.
 
 Only a few hardware components are needed for this project. An Arduino and an RXB6 receiver and a few wires. That's all.
 
-For the Arduino I recommend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
+For the Arduino, I recommend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
 
 The Arduino has to be connected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs an antenna. A simple wire with 17,3 cm length is usually sufficient. That's all for the hardware.
 
@@ -39,13 +39,13 @@ The id for a sensor is changing randomly after every battery change. To get the 
 
 The JSON formatted output can be easily read with smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker. 
 
-For the script I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
+For the script, I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
 
-The script will also create state objects in ioBroker. The current script supports two sensors. If you need less ore more, just comment out or duplicate the code for the receiver.
+The script will also create state objects in ioBroker. The current script supports two sensors. If you need less ore more, just comment out or duplicate the code for the sensor.
 
 For each receiver you have to define the channel and the id. The channel can be set with a small switch in the sensor. The sensor id will change randomly after a battery change in sensor. Use the Arduino Serial Monitor for getting the id initially or after battery change . Alternatively you can uncomment this line "// console.log(data);" in the parser function. Then all datagrams are shown in the ioBroker log.
 
-If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
+If you do changes in the script, make sure to restart the JavaScript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
 
 ```
 // Create a serial port
