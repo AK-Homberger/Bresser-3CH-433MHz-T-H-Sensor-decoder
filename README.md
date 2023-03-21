@@ -2,7 +2,7 @@
 
 This repository shows how to build a receiver/decoder for an 433 MHz [Bresser 3 channel](http://www.bresser.de/Wetter/BRESSER-Thermo-Hygro-Sensor-3CH-passend-fuer-BRESSER-Thermo-Hygrometer.html) temperature and humidity sensor.
 
-It is also shown how to integrate the decoder into the [ioBroker](https://www.iobroker.net/)smarthome platform.
+It is also shown how to integrate the decoder into the [ioBroker](https://www.iobroker.net/) smarthome platform.
 
 The only components are an [Arduino](https://www.makershop.de/plattformen/arduino/nano-v3/) (Nano recommended) and a [RXB6](https://www.makershop.de/module/funk/rxb6-433mhz-superheterodyne/) 433 MHz receiver. And of course one or more Bresser 3CH sensors.
 
