@@ -21,6 +21,8 @@ For the Arduino I recommend a small [Nano](https://docs.arduino.cc/hardware/nano
 
 The Arduino has to be connected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs an antenna. A simple wire with 17,3 cm length is usually sufficient. That's all for the hardware.
 
+The breadboard picture shows how to connect.
+
 ![Bresser3CH](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/Arduino.JPG)
 
 # Software
