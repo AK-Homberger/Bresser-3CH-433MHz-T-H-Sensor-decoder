@@ -44,7 +44,7 @@ The id for a sensor is changing randomly after every battery change. To get the 
 You can also use more than 3 sensors in ioBroker by defining the individual "id"/"ch" combination for a sensor.
 
 ## Programming Details
-The core function in the Arduino sketch is the interrupt function "void rx433Handler()".
+The core function in the Arduino sketch is the interrupt function "rx433Handler()".
 This function is called for every status change of the data line of the RXB6 receiver which is following the [On/Off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) of the sensor. 
 
 Within the function the duration of every "High" pulse is measured and compared with the timing of the Bresser 3CH which is detailled [here](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/README.md#bresser-3ch-data-format)
