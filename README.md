@@ -28,7 +28,7 @@ After restart the Arduino will wait for datgrams from one or more Bresser 3CH se
 
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
-# ioBroker integration script
+# ioBroker Integration Script
 The JSON formatted output can be easily read with othe smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker.
 
 For the script I will assume that ioBroker runs on a Raspberry. In the script the device name for the USB-Serial adapter has to be set. If it is the only adapter the the name "/dev/ttyACM0" should be the right name.
@@ -102,7 +102,7 @@ parser.on('data', function(data){
 });
 ```
 
-# Bresser 3CH data format
+# Bresser 3CH Data Format
 
 The sensor sends 15 identical packages of 40 bits each ~60s. The bits are PWM modulated with On Off Keying.
 
