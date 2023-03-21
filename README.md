@@ -26,7 +26,7 @@ The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
 # ioBroker integration script
 
-```
+´´´
 // Create a serial port
 const { SerialPort } = require('serialport');
 const port = new SerialPort({
@@ -86,4 +86,4 @@ parser.on('data', function(data){
     setState("javascript.0.C2_Humidity", hum, true);
   }
 });
-```
+´´´
