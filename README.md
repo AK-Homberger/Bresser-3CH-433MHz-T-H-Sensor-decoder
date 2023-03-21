@@ -14,6 +14,8 @@ A script for integration ioBroker is also available in this repository.
 
 The Arduino, i reccomend a small Nano for thos project, has to cennected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin2 from the Nano. The receiver need a antenna. A simple wire with 17,3 cm is usually sufficient. Thats all for the hardware.
 
+![Bresser3CH](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/Arduino.JPG)
+
 # Software
 
 The Arduino sketch hast to be uploaded with the Arduino IDE to the Nano.
