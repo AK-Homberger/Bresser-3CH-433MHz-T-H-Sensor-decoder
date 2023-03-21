@@ -39,7 +39,7 @@ For each receiver you have to define the channel and the id. The channel can be 
 
 If you do changes in the script make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device.
 
-´´´
+```
 // Create a serial port
 const { SerialPort } = require('serialport');
 const port = new SerialPort({
@@ -99,5 +99,4 @@ parser.on('data', function(data){
     setState("javascript.0.C2_Humidity", hum, true);
   }
 });
-
-´´´
+```
