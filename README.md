@@ -150,5 +150,5 @@ Meaning of bits:
      12 bit unsigned fahrenheit offset by 90 and scaled by 10
 - h: Humidity (MSB-first) 8 bit relative humidity percentage
 - x: checksum (byte1 + byte2 + byte3 + byte4) % 256
-     Check with e.g. (byte1 + byte2 + byte3 + byte4 - byte5) % 256) = 0
+     
 
