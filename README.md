@@ -117,7 +117,7 @@ Transmissions also include channel code, sync id, batt-low, and test/sync.
 
 ```
 Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble)
-32 bits data and 8 bits CRC checksum.
+32 bits data and 8 bits Modulo256 checksum.
 Data is transmitted in pure binary values, NOT BCD-coded.
 Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
 
@@ -137,7 +137,7 @@ The data is grouped in 5 bytes / 10 nibbles
  1111 1100 | 0001 0110 | 0001 0000 | 0011 0111 | 0101 1001 0  65.1 F 55 %
  iiii iiii | bscc tttt | tttt tttt | hhhh hhhh | xxxx xxxx
 ```
-
+Meaning of bits:
 - i: 8 bit random id (changes on power-loss)
 - b: battery indicator (0=>OK, 1=>LOW)
 - s: Test/Sync (0=>Normal, 1=>Test-Button pressed / Sync)
