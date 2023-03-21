@@ -105,7 +105,6 @@ parser.on('data', function(data){
 # Bresser 3CH Data Format
 
 The sensor sends 15 identical packages of 40 bits each ~60s. The bits are PWM modulated with On Off Keying.
-
 Transmissions also include channel code, sync id, batt-low, and test/sync.
 
 ```
@@ -117,10 +116,10 @@ Transmissions also include channel code, sync id, batt-low, and test/sync.
    |   1   |   1   |   0   |   0   |  translates as
 
 ```
-- Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble)
-- 32 bits data and 8 bits CRC checksum.
-- Data is transmitted in pure binary values, NOT BCD-coded.
-- Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
+Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble)
+32 bits data and 8 bits CRC checksum.
+Data is transmitted in pure binary values, NOT BCD-coded.
+Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
 
 - CH1 has a period of 57 s
 - CH2 has a period of 67 s
