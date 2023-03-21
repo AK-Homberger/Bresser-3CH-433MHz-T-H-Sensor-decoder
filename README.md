@@ -14,7 +14,7 @@ A script for integration ioBroker is also available in this repository.
 
 Only a few hardware components are needed for this project. An Arduino an a RXB6 receiver and a few wires. That's all.
 
-For the Arduino I reccomend a small Nano. But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
+For the Arduino I reccomend a small [Nano](https://store.arduino.cc/products/arduino-nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
 
 The Arduino has to be cennected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs a antenna. A simple wire with 17,3 cm length is usually sufficient. That's all for the hardware.
 
