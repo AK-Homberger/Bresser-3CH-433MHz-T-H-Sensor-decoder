@@ -29,15 +29,25 @@ The breadboard picture shows how to connect.
 
 The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) has to be uploaded with the Arduino IDE to the Nano.
 
-After restart, the Arduino will wait for datgrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
+After restart, the Arduino will wait for datagrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
 
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
-The id for a sensor is changing randomly after every battery change. To get the current id of a sensor you can yuse the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script. 
+- "id" is a random byte number (0-255) which is changing afer every power loss (e.g. battery change)
+- "ch" is the channel number (1-3) which can be set with a small swith inside the sensor
+- "temp" is the temperature in C°
+- "hum" is the humidity in %
+- "lowbatt" is the battery state indicator (0=OK, 1=Low battery voltage)
+
+The id for a sensor is changing randomly after every battery change. To get the current id of a sensor you can use the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script.
+
+You can also use more than 3 sensors in ioBroker by defining the individual "id"/"ch" combination for a sensor.
 
 # ioBroker Integration Script
 
-The JSON formatted output can be easily read with smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker. 
+The JSON formatted output can be easily read with smarthome platforms like ioBroker or Home Assistant. 
+
+The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker. 
 
 For the script, I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
 
@@ -47,6 +57,7 @@ For each receiver you have to define the channel and the id. The channel can be 
 
 If you do changes in the script, make sure to restart the JavaScript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
 
+Script to be copied into iOBroker JavaScript editor:
 ```
 // Create a serial port
 const { SerialPort } = require('serialport');
