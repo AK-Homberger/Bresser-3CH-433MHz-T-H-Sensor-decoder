@@ -12,11 +12,11 @@ A script for integration ioBroker is also available in this repository.
 
 # Hardware
 
-Only a few hardware components are needed for this project. An Arduino an a RXB6 receiver and a few wires. That's all.
+Only a few hardware components are needed for this project. An Arduino and an RXB6 receiver and a few wires. That's all.
 
-For the Arduino I reccomend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
+For the Arduino I recommend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
 
-The Arduino has to be cennected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs a antenna. A simple wire with 17,3 cm length is usually sufficient. That's all for the hardware.
+The Arduino has to be cennected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs an antenna. A simple wire with 17,3 cm length is usually sufficient. That's all for the hardware.
 
 ![Bresser3CH](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/Arduino.JPG)
 
@@ -24,22 +24,22 @@ The Arduino has to be cennected to the RXB6 receiver with 5 Volt/GND and the dat
 
 The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) has to be uploaded with the Arduino IDE to the Nano.
 
-After restart the Arduino will wait for datgrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
+After restart, the Arduino will wait for datgrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams will be decoded and JSON formatted data will be written to USB-Serial. 
 
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
 # ioBroker Integration Script
 The JSON formatted output can be easily read with othe smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker.
 
-For the script I will assume that ioBroker runs on a Raspberry. In the script the device name for the USB-Serial adapter has to be set. If it is the only adapter the the name "/dev/ttyACM0" should be the right name.
+For the script I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
 
-The script will also create state object in ioBroker. The current script supports two sensors. If you need less ore more, just comment out or duplicate the code for the receiver.
+The script will also create state objects in ioBroker. The current script supports two sensors. If you need less ore more, just comment out or duplicate the code for the receiver.
 
 For each receiver you have to define the channel and the id. The channel can be set with a small switch in the sensor. The sensor id will change randomly after a battery change in sensor. Use the Arduino Serial Monitor for getting the id initially or after battery change . Alternatively you can uncomment this line "// console.log(data);" in the parser function. Then all datagrams are shown in the ioBroker log.
 
-If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device.
+If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
 
-```
+````
 
 // Create a serial port
 const { SerialPort } = require('serialport');
@@ -100,7 +100,7 @@ parser.on('data', function(data){
     setState("javascript.0.C2_Humidity", hum, true);
   }
 });
-```
+````
 
 # Bresser 3CH Data Format
 
