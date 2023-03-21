@@ -25,6 +25,15 @@ After restart the Arduino will wait for datgrams from one or more Bresser 3CH se
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
 # ioBroker integration script
+The JSON formatted output can be easily read with othe smarthome platforms like ioBroker or Home Assitant. The following script will show how to read the JSON data and set state values in ioBroker. To use the scrip the Javascript adapter has to be installed in ioBroker.
+
+For the script I will assume that ioBroker runs on a Raspberry. In the script the device name for the USB-Serial adapter has to be set. If it is the only adapter the the name "/dev/ttyACM0" should be the right name.
+
+The script will also create state object in ioBroker. The current script supports two sensors. If you need less ore mor just comment out or duplicate the code for the receiver.
+
+For each receiver you have to define the channel and the id. The channel can be set with a small switch in the sensor. The sensor id will change randomly after a battery change in sensor. Use the Arduino Serial Monitor for getting the new id. Alternatively you can uncomment this line "// console.log(data);" in the parser function. The all datagrams are shown in the ioBroker log.
+
+If you do changes in the script make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device.
 
 ´´´
 // Create a serial port
