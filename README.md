@@ -131,8 +131,8 @@ Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36
    |   1   |   1   |   0   |   0   |  translates as
 
 ```
-- A short pulse of 250 us followed by a 500 us gap is a 0 bit,
 - a long pulse of 500 us followed by a 250 us gap is a 1 bit,
+- A short pulse of 250 us followed by a 500 us gap is a 0 bit,
 - there is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
 
 The data is grouped in 5 bytes / 10 nibbles
