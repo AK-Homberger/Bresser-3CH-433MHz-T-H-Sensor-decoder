@@ -33,9 +33,10 @@ After restart, the Arduino will wait for datgrams from one or more Bresser 3CH s
 
 The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
-The id for a sensor is changing randomly after every battery change. To get the current id of a sensor you can yuse the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script.
+The id for a sensor is changing randomly after every battery change. To get the current id of a sensor you can yuse the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script. 
 
 # ioBroker Integration Script
+
 The JSON formatted output can be easily read with othe smarthome platforms like ioBroker or Home Assistant. The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker.
 
 For the script I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
@@ -47,7 +48,6 @@ For each receiver you have to define the channel and the id. The channel can be 
 If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
 
 ```
-
 // Create a serial port
 const { SerialPort } = require('serialport');
 const port = new SerialPort({
@@ -136,7 +136,6 @@ Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36
   -+    +--+    +--+  +----+  +----  low
    ^       ^       ^       ^       ^  clock cycle
    |   1   |   1   |   0   |   0   |  translates as
-
 ```
 - a long pulse of 500 us followed by a 250 us gap is a 1 bit,
 - A short pulse of 250 us followed by a 500 us gap is a 0 bit,
