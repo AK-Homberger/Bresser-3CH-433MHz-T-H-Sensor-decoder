@@ -159,9 +159,9 @@ Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble).
 Data is transmitted in pure binary values.
 Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
 
-- CH1 has a period of 57 s
-- CH2 has a period of 67 s
-- CH3 has a period of 79 s
+- Channel 1 has a period of 57 s
+- Channel 2 has a period of 67 s
+- Channel 3 has a period of 79 s
 
 ```
    +----+  +----+  +--+    +--+      high
@@ -171,11 +171,11 @@ Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36
    ^       ^       ^       ^       ^  clock cycle
    |   1   |   1   |   0   |   0   |  translates as
 ```
-- a long pulse of 500 us followed by a 250 us gap is a 1 bit,
-- A short pulse of 250 us followed by a 500 us gap is a 0 bit,
-- there is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
+- A long pulse of 500 us followed by a 250 us gap is a 1 bit,
+- a short pulse of 250 us followed by a 500 us gap is a 0 bit.
+- There is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
 
-The data is grouped in 5 bytes / 10 nibbles
+The data is grouped in 5 bytes / 10 nibbles:
 
 ```
  1111 1100 | 0001 0110 | 0001 0000 | 0011 0111 | 0101 1001 0  65.1 F 55 %
