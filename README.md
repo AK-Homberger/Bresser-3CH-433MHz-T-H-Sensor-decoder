@@ -55,9 +55,9 @@ Within the function, the duration of every "high" pulse is measured and compared
    ^       ^       ^       ^       ^  clock cycle
    |   1   |   1   |   0   |   0   |  translates as
 ```
-- a long pulse of 500 us followed by a 250 us gap is a 1 bit,
-- A short pulse of 250 us followed by a 500 us gap is a 0 bit,
-- there is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
+- A long pulse of 500 us followed by a 250 us gap is a 1 bit,
+- a short pulse of 250 us followed by a 500 us gap is a 0 bit.
+- There is a sync preamble of pulse, gap, 750 us each, repeated 4 times.
 
 Every valid "sync pulse" or invalid detected timing will reset the received data to zero.
 
