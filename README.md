@@ -69,7 +69,7 @@ Within "loop()" the availability of new data in the ring buffer is constantly ch
 
 The JSON formatted output can be easily read with smarthome platforms like [ioBroker](https://www.iobroker.net/) or Home Assistant. 
 
-The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the JavaScript adapter has to be installed in ioBroker. 
+The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the Javascript/Blockly adapter has to be installed in ioBroker. 
 
 For the script, I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter, then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
 
@@ -77,7 +77,7 @@ The script will also create state objects in ioBroker. The current script suppor
 
 For each sensor you have to define the channel and the id. The channel can be set with a small switch in the sensor. The sensor id will change randomly after a battery change in sensor. Use the Arduino Serial Monitor for getting the id initially or after battery change . Alternatively you can uncomment this line "// console.log(data);" in the parser function. Then all datagrams are shown in the ioBroker log.
 
-If you do changes in the script, make sure to restart the JavaScript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
+If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device. And the script will not work.
 
 Script to be copied into iOBroker JavaScript editor:
 ```
@@ -146,6 +146,7 @@ parser.on('data', function(data){
 });
 
 ```
+An example on how to use the data in ioBroker together with a VIS visualisation can be found [here](https://github.com/AK-Homberger/D1Mini-GasCounter).
 
 # Bresser 3CH Data Format
 
