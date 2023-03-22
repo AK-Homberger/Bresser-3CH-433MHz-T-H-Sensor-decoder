@@ -156,7 +156,7 @@ Transmissions also include channel code, sync id, batt-low, and test/sync.
 Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble).
 32 bits data and 8 bits Modulo256 checksum.
 
-Data is transmitted in pure binary values, NOT BCD-coded.
+Data is transmitted in pure binary values.
 Temperature is given in Centi-Fahrenheit and offset by 900.  Burst length is ~36ms (41 pulses + 8 syncs) * 750us.
 
 - CH1 has a period of 57 s
