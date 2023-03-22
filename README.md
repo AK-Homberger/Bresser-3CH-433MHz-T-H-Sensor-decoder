@@ -33,7 +33,7 @@ The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 
 - "id" is a random byte number (0-255) which is changing afer every power loss (e.g. battery change)
 - "ch" is the channel number (1-3) which can be set with a small swith inside the sensor
-- "temp" is the temperature in C°
+- "temp" is the temperature in °C
 - "hum" is the humidity in %
 - "lowbatt" is the battery state indicator (0=OK, 1=Low battery voltage)
 
