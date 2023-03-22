@@ -195,4 +195,4 @@ Meaning of bits:
 Basic information for this project has been found here: https://forum.iobroker.net/topic/3478/l%C3%B6sung-dekodieren-t-h-sensor-wetterstation-hygrometer-von-bresser-angebot-bei-lidl-14-99-uvp-40-433mhz
 
 A lot of corrections/improvements were necessary to get a working solution with ioBroker integration. 
-But thanks for the usefull information anywhere.
+But thanks for the useful information regarding the timing anywhere.
