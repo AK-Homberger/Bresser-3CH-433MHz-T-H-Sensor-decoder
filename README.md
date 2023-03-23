@@ -147,7 +147,7 @@ parser.on('data', function(data){
 });
 
 ```
-An example on how to use the data in ioBroker together with a VIS visualisation can be found [here](https://github.com/AK-Homberger/D1Mini-GasCounter), where the Bresser sensor is used to get the outside temperature/humidity.
+An example on how to use the data in ioBroker, together with a VIS visualisation, can be found [here](https://github.com/AK-Homberger/D1Mini-GasCounter), where the Bresser sensor is used to get the outside temperature/humidity.
 
 # Bresser 3CH Data Format
 
