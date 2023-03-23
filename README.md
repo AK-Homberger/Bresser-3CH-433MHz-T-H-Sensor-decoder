@@ -26,7 +26,7 @@ The breadboard picture shows how to connect.
 
 # Software
 
-The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) has to be uploaded with the Arduino IDE to the Nano. Depending on the Nano type/version, it might be necessary to select **Prozessor: "ATmega328P (Old Bootloader)"** in the IDE to make the upload work.
+The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) has to be uploaded with the Arduino IDE to the Nano. Depending on the Nano type/version, it might be necessary to select **Processor: "ATmega328P (Old Bootloader)"** in the IDE to make the upload work.
 
 After restart, the Arduino will wait for datagrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams are decoded and JSON formatted data is written to USB-Serial. 
 
