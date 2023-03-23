@@ -89,15 +89,12 @@ void setup() {
 // Check if received modulo 256 checksum is correct for received data
 
 boolean checksumValid(unsigned long data, byte checksum) {
-  unsigned calculatedChecksum = 0;
+  byte calculatedChecksum = 0;
 
-  // Sum up received data bytes
+  // Create calculated checksum by sum up in a byte (= modulo 256)
   for (int i = 0; i < 4 ; i++) calculatedChecksum += ((data >> (i * 8)) & 0xFF);
 
-  // Create calculated checksum by sum modulo 256
-  calculatedChecksum %= 256;
-
-  // Return true if claculated CRC equals received CRC
+  // Return true if claculated checksum equals received checksum
   return (calculatedChecksum == checksum);
 }
 
