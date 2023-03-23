@@ -79,7 +79,7 @@ For each sensor you have to define the channel and the id. The channel can be se
 
 If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device and the script will not work.
 
-Script to be copied into iOBroker JavaScript editor:
+Script to be copied into ioBroker Javascript editor:
 ```
 // Create a serial port
 const { SerialPort } = require('serialport');
