@@ -151,7 +151,7 @@ An example on how to use the data in ioBroker together with a VIS visualisation 
 
 # Bresser 3CH Data Format
 
-The sensor sends 15 identical packages of 40 bits each ~60s. The bits are pulse duration coded with [On-off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) Keying.
+The sensor sends 15 identical packages of 40 bits each ~60s. The bits are pulse duration coded with [On-off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying).
 Transmissions also include channel code, sync id, batt-low, and test/sync.
 
 Each transmission is 40 bits long (i.e. 29 ms, 36 incl. preamble).
