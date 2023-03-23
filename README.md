@@ -29,7 +29,7 @@ The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sens
 
 After restart, the Arduino will wait for datagrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams are decoded and JSON formatted data is written to USB-Serial. 
 
-The format is like this: {"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
+The format is like this: ##{"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}##
 
 - "id" is a random byte number (0-255) which is changing afer every power loss (e.g. battery change)
 - "ch" is the channel number (1-3) which can be set with a small switch inside the sensor
