@@ -42,7 +42,7 @@ The id for a sensor is changing randomly after every battery change. To get the 
 You can also use more than 3 sensors in ioBroker by defining the individual "id"/"ch" combination for a sensor.
 
 ## Programming Details
-The core function in the Arduino sketch is the interrupt function "rx433Handler()".
+The core function in the Arduino sketch is the interrupt function **rx433Handler()**.
 This function is called for every status change of the data line of the RXB6 receiver which is following the [On-Off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) of the sending sensor. 
 
 Within the function, the duration of every "high" pulse is measured and compared with the timing of the Bresser 3CH.
@@ -63,7 +63,7 @@ Every valid "sync pulse" or invalid detected timing will reset the received data
 
 For each vaild 0/1 received bit, the bit is stored and counted. If all 40 bits (32 bits data an 8 bits checksum) are received without detected invalid timings, the checksum is checked, and if correct, the data will be written to a ring buffer.
 
-Within "loop()" the availability of new data in the ring buffer is constantly checked. If new data is available, the data will be decoded with the function "getResults()". The decoded values are formatted as JSON string and sent to the USB-Serial interface (once per second for each sensor).
+Within **loop()** the availability of new data in the ring buffer is constantly checked. If new data is available, the data will be decoded with the function **getResults()**. The decoded values are formatted as JSON string and sent to the USB-Serial interface (once per second for each sensor).
 
 # ioBroker Integration Script
 
@@ -71,7 +71,7 @@ The JSON formatted output can be easily read with smarthome platforms like [ioBr
 
 The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the Javascript/Blockly adapter has to be installed in ioBroker. 
 
-For the script, I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter, then the name "/dev/ttyACM0" should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
+For the script, I will assume that ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter, then the name **"/dev/ttyACM0"** should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
 
 The script will also create state objects in ioBroker. The current script supports two sensors. If you need less or more, just comment out or duplicate/change the code for the sensor.
 
