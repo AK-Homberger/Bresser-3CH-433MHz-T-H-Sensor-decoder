@@ -9,13 +9,14 @@ The only components needed are an [Arduino](https://www.makershop.de/plattformen
 ![Bresser3CH](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/Bresser3CH.JPG)
 
 An [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sensor-decoder/blob/main/433MHz-Temperatur-Bresser-Nano/433MHz-Temperatur-Bresser-Nano.ino) decodes the data received from the RXB6 and sends the decoded data as JSON string to the USB-Serial interface.
+
 The intention is to use the decoded data on a smarthome system like ioBroker.
 
 # Hardware
 
 Only a few hardware components are needed for this project. An Arduino and an RXB6 receiver and a few wires. That's all.
 
-For the Arduino, I recommend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
+For the Arduino, I recommend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Arduino pin that supports interrupts.
 
 The **Arduino Nano** [(Pinout)](https://linuxhint.com/wp-content/uploads/2022/05/image3-64.png) has to be connected to the **RXB6** [(Pinout)](https://www.makershop.de/download/rxb6-pinout.jpg) receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs an antenna. A simple wire with 17,3 cm length is sufficient. That's all for the hardware.
 
