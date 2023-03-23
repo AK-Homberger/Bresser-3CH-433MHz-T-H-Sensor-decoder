@@ -17,7 +17,7 @@ Only a few hardware components are needed for this project. An Arduino and an RX
 
 For the Arduino, I recommend a small [Nano](https://docs.arduino.cc/hardware/nano). But every Arduino should work. Just make sure to connect the receiver data to an Aduino pin that supports interrupts.
 
-The Arduino has to be connected to the RXB6 receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs an antenna. A simple wire with 17,3 cm length is sufficient. That's all for the hardware.
+The Arduino has to be connected to the [RXB6](https://www.makershop.de/download/rxb6-pinout.jpg) receiver with 5 Volt/GND and the data output from the receiver with pin 2 from the Nano. The receiver needs an antenna. A simple wire with 17,3 cm length is sufficient. That's all for the hardware.
 
 The breadboard picture shows how to connect.
 
