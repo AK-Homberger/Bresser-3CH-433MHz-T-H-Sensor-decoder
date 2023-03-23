@@ -32,7 +32,7 @@ After restart, the Arduino will wait for datagrams from one or more Bresser 3CH 
 
 The format is like this: **{"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}**
 
-- **"id"** is a random byte number (0-255) which is changing afer every power loss (e.g. battery change)
+- **"id"** is a random byte number (0-255) which is changing after every power loss (e.g. battery change)
 - **"ch"** is the channel number (1-3) which can be set with a small switch inside the sensor
 - **"temp"** is the temperature in °C
 - **"hum"** is the humidity in %
