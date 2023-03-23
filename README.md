@@ -44,7 +44,7 @@ You can also use more than 3 sensors in ioBroker by defining the individual "id"
 
 ## Programming Details
 The core function in the Arduino sketch is the interrupt function **rx433Handler()**.
-This function is called for every status change of the data line of the RXB6 receiver which is following the [On-Off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) of the sending sensor. 
+This function is called for every status change of the data line of the RXB6 receiver which is following the [On-off keying](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) of the sending sensor. 
 
 Within the function, the duration of every "high" pulse is measured and compared with the timing of the Bresser 3CH.
 
