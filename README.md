@@ -29,13 +29,13 @@ The [Arduino sketch](https://github.com/AK-Homberger/Bresser-3CH-433MHz-T-H-Sens
 
 After restart, the Arduino will wait for datagrams from one or more Bresser 3CH sensors. The sensors will send a telegram about every minute. Receiver datagrams are decoded and JSON formatted data is written to USB-Serial. 
 
-The format is like this: ##{"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}##
+The format is like this: **{"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}**
 
-- "id" is a random byte number (0-255) which is changing afer every power loss (e.g. battery change)
-- "ch" is the channel number (1-3) which can be set with a small switch inside the sensor
-- "temp" is the temperature in °C
-- "hum" is the humidity in %
-- "lowbatt" is the battery state indicator (0=OK, 1=Low battery voltage)
+- **"id"** is a random byte number (0-255) which is changing afer every power loss (e.g. battery change)
+- **"ch"** is the channel number (1-3) which can be set with a small switch inside the sensor
+- **"temp"** is the temperature in °C
+- **"hum"** is the humidity in %
+- **"lowbatt"** is the battery state indicator (0=OK, 1=Low battery voltage)
 
 The id for a sensor is changing randomly after every battery change. To get the current id of a sensor, you can use the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script.
 
@@ -77,7 +77,7 @@ The script will also create state objects in ioBroker. The current script suppor
 
 For each sensor you have to define the channel and the id. The channel can be set with a small switch in the sensor. The sensor id will change randomly after a battery change in sensor. Use the Arduino Serial Monitor for getting the id initially or after battery change . Alternatively you can uncomment this line "// console.log(data);" in the parser function. Then all datagrams are shown in the ioBroker log.
 
-If you do changes in the script, make sure to restart the Javascript instance in ioBroker. Otherwise you will get an error related to a blocked serial device and the script will not work.
+If you do changes in the script, make sure to **restart the Javascript instance** in ioBroker. Otherwise you will get an error related to a blocked serial device and the script will not work.
 
 Script to be copied into ioBroker Javascript editor:
 ```
@@ -195,4 +195,4 @@ Meaning of bits:
 Basic information for this project has been found here: https://forum.iobroker.net/topic/3478/l%C3%B6sung-dekodieren-t-h-sensor-wetterstation-hygrometer-von-bresser-angebot-bei-lidl-14-99-uvp-40-433mhz
 
 A lot of corrections/improvements were necessary to get a working solution with ioBroker integration. 
-But thanks for the useful information regarding the timing anywhere.
+But thanks for the useful information regarding the timing.
