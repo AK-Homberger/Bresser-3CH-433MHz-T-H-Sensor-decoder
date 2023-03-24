@@ -72,7 +72,7 @@ The JSON formatted output can be easily read with smarthome platforms like [ioBr
 
 The following script will show how to read the JSON data and set state values in ioBroker. To use the script, the Javascript/Blockly adapter has to be installed in ioBroker. 
 
-For the script, I'm assuming ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter, then the name **"/dev/ttyACM0"** should be the right name. Otherwise you can find out the name with "dmesg" command on the raspberry after connecting the Nano to the Raspberry via USB.
+For the script, I'm assuming ioBroker runs on a Raspberry. In the script, the device name for the USB-Serial adapter has to be set. If it is the only adapter, then the name **"/dev/ttyACM0"** should be the right name. Otherwise you can find out the name with "dmesg" command on the Raspberry after connecting the Nano to the Raspberry via USB.
 
 The script creates state objects in ioBroker. The current script supports two sensors. If you need less or more, just comment out or duplicate/change the code for the sensor.
 
