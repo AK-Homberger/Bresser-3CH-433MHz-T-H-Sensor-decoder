@@ -38,7 +38,7 @@ The format is like this: **{"id":63, "ch":2, "temp":18.8, "hum":62, "lowbatt":0}
 - **"hum"** is the humidity in %
 - **"lowbatt"** is the battery state indicator (0=OK, 1=Low battery voltage)
 
-The id for a sensor is changing randomly after every battery change. To get the current id of a sensor, you can use the Serial Monitor in the Arduino IDE now to get the information. You will need the id later for configuring the ioBroker script.
+The id for a sensor is changing randomly after every battery change. To get the current id of a sensor, you can use the Serial Monitor in the Arduino IDE to get the information. You will need the id for configuring the ioBroker script.
 
 You can also use more than 3 sensors in ioBroker by defining the individual "id"/"ch" combination for a sensor.
 
