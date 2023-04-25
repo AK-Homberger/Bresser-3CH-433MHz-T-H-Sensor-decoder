@@ -76,7 +76,7 @@ For the script, I'm assuming ioBroker runs on a Raspberry. In the script, the de
 
 The script creates state objects in ioBroker. The current script supports two sensors. If you need less or more, just comment out or duplicate/change the code for the sensor.
 
-For each sensor you have to define the channel and the id. The channel can be set with a small switch inside the sensor. The sensor id will change randomly after a battery change in sensor. Use the Arduino Serial Monitor for getting the id initially or after battery change . Alternatively you can uncomment this line "// console.log(data);" in the parser function. Then all datagrams are shown in the ioBroker log.
+For each sensor you have to define the channel and the id. The channel can be set with a small switch inside the sensor. The sensor id will change randomly after a battery change of the sensor. Use the Arduino Serial Monitor for getting the id initially or after battery change . Alternatively you can uncomment this line "// console.log(data);" in the parser function. Then all datagrams are shown in the ioBroker log.
 
 **If you do changes** in the script, make sure to **restart the Javascript instance** in ioBroker. Otherwise you will get an error related to a blocked serial device and the script will not work.
 
